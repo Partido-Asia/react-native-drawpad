@@ -49,12 +49,6 @@ catchImageEncode(base64EncodingImage){
 ...
 ```
 
-This is [on GitHub](https://github.com/jbt/markdown-editor) so let me know if I've b0rked it somewhere.
-
-
-Props to Mr. Doob and his [code editor](http://mrdoob.com/projects/code-editor/), from which
-the inspiration to this, and some handy implementation hints, came.
-
 ### Reference:
 
  * [React NAtive Webviw-Bridge](https://github.com/alinz/react-native-webview-bridge) for webview/native communication
