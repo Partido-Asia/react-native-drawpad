@@ -1,0 +1,20 @@
+{
+  "name": "react-native-drawpad",
+  "version": "1.0.0",
+  "description": "A react native drawpad component that implement with webview and web bridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "draw",
+    "pad"
+  ],
+  "author": "Partido",
+  "license": "MIT",
+  "dependencies": {
+    "react-native-webview-bridge": "^0.33.0"
+  }
+}
