@@ -14,13 +14,13 @@ Basic useful feature list:
 And here's some code! :+1:
 
 ```javascript
-import ReactDrawPad from 'react-native-drawpad';
+import ReactNativeDrawPad from 'react-native-drawpad';
 ...
 
 
 render(){
   return (
-    <ReactDrawPad
+    <ReactNativeDrawPad
         ref="drawpad"
         width={300}
         height={300}
@@ -51,5 +51,5 @@ catchImageEncode(base64EncodingImage){
 
 ### Reference:
 
- * [React NAtive Webviw-Bridge](https://github.com/alinz/react-native-webview-bridge) for webview/native communication
+ * [React Native Webviw-Bridge](https://github.com/alinz/react-native-webview-bridge) for webview/native communication
 
