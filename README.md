@@ -2,10 +2,10 @@
 
 Basic useful feature list:
 
- * Let user draw anything they want!
- * change color easily
- * change thickness easily
- * get base64 encode callback
+ * Let users draw anything they want!
+ * change color of input easily
+ * change thickness of input easily
+ * get base64 encoding callback
 
 
 ### Still developing, any PR is welcome!
