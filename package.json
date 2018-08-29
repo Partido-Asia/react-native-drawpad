@@ -18,6 +18,6 @@
     "prop-types": "^15.6.2",
     "react-native-vector-icons": "^4.0.0",
     "@ptomasroos/react-native-multi-slider": "0.0.7",
-    "react-native-webview-bridge": "git://github.com/vtex/react-native-webview-bridge.git#feature/wkwebview",
+    "react-native-webview-bridge": "git://github.com/vtex/react-native-webview-bridge.git#feature/wkwebview"
   }
 }
