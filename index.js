@@ -153,6 +153,7 @@ class Canvas extends Component{
     super(props);
     this.changeThickness = this.changeThickness.bind(this);
     this.onBridgeMessage = this.onBridgeMessage.bind(this);
+    this.undo = this.undo.bind(this);
     this.state = {
       base64:"",
       selectedColor:"#dd7777",
@@ -182,6 +183,10 @@ class Canvas extends Component{
     this.setState({thickness:values})
     webviewbridge.sendToBridge("size】"+String(values[0]*2 + 2) );
   }
+  undo(){
+    const { webviewbridge } = this.refs;
+    webviewbridge.sendToBridge("lastStep】ok");
+  }
   render() {
     var W = Dimensions.get("window");
     return (
@@ -206,10 +211,7 @@ class Canvas extends Component{
         </View>
         <View style={{flex:2,justifyContent:"center",alignItems:"center"}}>
           <View style={{justifyContent:"center",alignItems:"center",flexDirection:'row'}}>
-            {this.props.showUndoButton?<TouchableOpacity onPress={()=>{
-              const { webviewbridge } = this.refs;
-              webviewbridge.sendToBridge("lastStep】ok");
-            }} style={{justifyContent:"center",alignItems:"center"}}>
+            {this.props.showUndoButton?<TouchableOpacity onPress={this.undo} style={{justifyContent:"center",alignItems:"center"}}>
               <View style={{justifyContent:"center",alignItems:"center",margin:10,height:40,width:40,borderRadius:20,backgroundColor:"#eee"}}>
                 <Icon name="ios-rewind" color="#777" size={20}/>
               </View>

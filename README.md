@@ -5,6 +5,7 @@ Basic useful feature list:
  * Let users draw anything they want!
  * change color of input easily
  * change thickness of input easily
+ * default penal to change color, thickness and undo
  * get base64 encoding callback
 
 
@@ -34,6 +35,10 @@ changePenColor(color){
 	this.refs.drawpad.changeColor(color)
 }
 
+undo(){
+  this.refs.drawpad.undo(coor)
+}
+
 changePenColor(thickness){
 	this.refs.drawpad.changethickness(thickness)
 }
@@ -44,6 +49,8 @@ catchImageEncode(base64EncodingImage){
 
 ...
 ```
+
+### Props
 
 | Prop | Description | Default |
 |---|---|---|
