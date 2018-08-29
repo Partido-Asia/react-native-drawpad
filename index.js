@@ -219,7 +219,7 @@ class Canvas extends Component{
             </TouchableOpacity>:null}
             {this.props.showErasor?<TouchableOpacity onPress={()=>this.changeColor(this.props.padColor)}>
               <View style={{justifyContent:"center",alignItems:"center",margin:10,height:40,width:40,borderRadius:20,backgroundColor:"transparent"}}>
-                <Image source={require("./../images/icon_eraser.png")} style={{width:40,height:40}}/>
+                <Image source={require("./images/icon_eraser.png")} style={{width:40,height:40}}/>
               </View>
               {this.props.selectedColor == this.props.padColor?<Text style={{color:this.state.selectedColor}}>Erasor</Text>:<Text style={{color:"#777"}}>Erasor</Text>}
             </TouchableOpacity>:null}
