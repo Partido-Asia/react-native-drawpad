@@ -22,20 +22,16 @@ render(){
   return (
     <ReactNativeDrawPad
         ref="drawpad"
-        width={300}
-        height={300}
-        background={"#efefef"}
-        onSubmitResult={this.catchImageEncode}
+        padWidth={300}
+        padHeight={300}
+        padColor={"#efefef"}
+        onPadUpdated={this.catchImageEncode}
     />
    )
  }
  
 changePenColor(color){
 	this.refs.drawpad.changeColor(color)
-}
-
-askForBase64EncodingImage(){
-	this.refs.drawpad.submit()
 }
 
 changePenColor(thickness){
@@ -48,6 +44,19 @@ catchImageEncode(base64EncodingImage){
 
 ...
 ```
+
+| Prop | Description | Default |
+|---|---|---|
+|**`showColorSelectors`**|Boolean, if true, show the color selector |`true`|
+|**`showErasor`**|Boolean, if true, show the erasor button |`true`|
+|**`showUndoButton`**|Boolean, if true, show the undo button |`true`|
+|**`showThicknessSlider`**|Boolean, if true, show the thickness slider |`true`|
+|**`selectedColor`**|Sring, color for text in button when selected |`#dd7777`|
+|**`padColor`**|Sring, color of the drawpad |`#eee`|
+|**`padWidth`**|Number, width of the drawpad |`300`|
+|**`padHeight`**|Number, height of the drawpad |`300`|
+|**`colors`**|Array, a set of color used in color selector |`['#dd7777','#222','#FE5722', '#FEEA3B', '#4CAE50', '#2196F2','purple']`|
+|**`onPadUpdated`**|Function, the function to listen to the change of the drawpad |`a function log the base64 encoding image data`|
 
 ### Reference:
 
