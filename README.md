@@ -1,5 +1,7 @@
 # react-native-drawpad
 
+![image](https://i.imgur.com/SwqV8dc.gif)
+
 Basic useful feature list:
 
  * Let users draw anything they want!
