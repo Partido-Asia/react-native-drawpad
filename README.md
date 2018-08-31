@@ -1,6 +1,6 @@
 # react-native-drawpad
 
-![image](https://i.imgur.com/MdYbGO1.gif)
+![image](https://imgur.com/1kN9OtI.gif)
 
 Basic useful feature list:
 

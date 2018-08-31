@@ -1,6 +1,6 @@
 {
   "name": "react-native-drawpad",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A react native drawpad component that implement with webview and web bridge",
   "main": "index.js",
   "scripts": {
