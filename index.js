@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { ScrollView, Alert, WebView, View, Dimensions, TouchableOpacity, Text, Image } from 'react-native';
 import WebViewBridge from 'react-native-webview-bridge';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
 const injectScript = `
@@ -34,14 +33,8 @@ const htmlSource = `
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 </head>
-<body style="margin: 0;border:0;background: #fff;overflow: hidden;width:300px;height:300px;">
-<canvas id="main_canvas" width="600px;" height="600px;" style="display: block;"></canvas>
-<style type="text/css">
-  #main_canvas{
-    width: 300px;
-    height: 300px;
-  }
-</style>
+<body style="margin: 0px;border:0px;overflow: hidden;padding:0px">
+<canvas id="main_canvas" style="display: block;margin:0px;border:0px;padding:0px;"></canvas>
 <script type="text/javascript">
 
   var disableMagnifier = function(e) { e.returnValue = false };
@@ -86,7 +79,7 @@ const htmlSource = `
 
     context.lineJoin = 'round';
     context.lineCap = 'round';
-    context.strokeStyle = "#777";
+    context.strokeStyle = "#dd7777";
     context.lineWidth = 2;
 
     WebViewBridge.send("loadEnd】123" );
@@ -163,7 +156,6 @@ class Canvas extends Component{
     };
   }
   onBridgeMessage(message){
-    console.warn("here1");
     const { webviewbridge } = this.refs;
     var type = message.split("】")[0];
     if (type == 'base64') {
@@ -191,8 +183,8 @@ class Canvas extends Component{
     var W = Dimensions.get("window");
     return (
       <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:"transparent"}}>
-        <View style={{flex:9,justifyContent:"center",alignItems:"center"}}>
-          {this.state.loadEnd?null:<Text style={{color:"#777",fontSize:15}}>Loading...</Text>}
+        {this.state.loadEnd?null:<Text style={{color:"#777",fontSize:15}}>Loading...</Text>}
+        <View style={{justifyContent:"center",alignItems:"center",height:this.props.padHeight}}>
           <WebViewBridge
             automaticallyAdjustContentInsets={false}
             source={{html:htmlSource}}
@@ -204,16 +196,15 @@ class Canvas extends Component{
             injectedJavaScript={injectScript}
             onLoadEnd={()=>{
               const { webviewbridge } = this.refs;
-              webviewbridge.sendToBridge("init】" + String(this.props.padWidth) + "/" + String(this.props.padHeight) + "/" + this.props.padColor)
+              webviewbridge.sendToBridge("init】" + String(this.props.padWidth) + "/" + String(this.props.padHeight) + "/" + this.props.padColor + "/" + this.props.initColor)
             }}
             style={{width:this.props.padWidth, height:this.props.padHeight, backgroundColor:this.props.padColor}}
           />
         </View>
-        <View style={{flex:2,justifyContent:"center",alignItems:"center"}}>
           <View style={{justifyContent:"center",alignItems:"center",flexDirection:'row'}}>
             {this.props.showUndoButton?<TouchableOpacity onPress={this.undo} style={{justifyContent:"center",alignItems:"center"}}>
               <View style={{justifyContent:"center",alignItems:"center",margin:10,height:40,width:40,borderRadius:20,backgroundColor:"#eee"}}>
-                <Icon name="ios-rewind" color="#777" size={20}/>
+                <Text style={{color:"#777"}}>＜</Text>
               </View>
               <Text style={{color:"#777"}}>Undo</Text>
             </TouchableOpacity>:null}
@@ -230,7 +221,7 @@ class Canvas extends Component{
                   return(
                     <TouchableOpacity onPress={()=>this.changeColor(color)} key={"color_selector_"+color}>
                       <View style={{justifyContent:"center",alignItems:"center",margin:10,height:46,width:46,borderRadius:23,backgroundColor:color}}>
-                        {this.state.selectedColor == color?<Icon name="md-checkmark" color="#fff" size={20}/> :null}
+                        {this.state.selectedColor == color?<Text style={{color:"#fff"}}>√</Text>:null}
                       </View>
                     </TouchableOpacity>
                   )
@@ -238,8 +229,7 @@ class Canvas extends Component{
               </View>
             </ScrollView>:null}
           </View>
-        </View>
-        {this.props.showThicknessSlider?<View style={{flex:2,justifyContent:"center",alignItems:"center"}}>
+        {this.props.showThicknessSlider?<View style={{justifyContent:"center",alignItems:"center"}}>
           <Text style={{margin:5,color:"#777",fontSize:15,marginBottom:15}}>Thickness</Text>
           <MultiSlider 
             selectedStyle={{
@@ -264,6 +254,7 @@ Canvas.propTypes = {
   padWidth: PropTypes.number,
   padHeight: PropTypes.number,
   colors: PropTypes.array,
+  initColor:PropTypes.string,
   onPadUpdated: PropTypes.func
 }
 
@@ -276,6 +267,7 @@ Canvas.defaultProps = {
   padColor: "#eee",
   padWidth: 300,
   padHeight: 300,
+  initColor: "#dd7777",
   colors: ['#dd7777','#222','#FE5722', '#FEEA3B', '#4CAE50', '#2196F2','purple'],
   onPadUpdated: (base64)=>{ console.log("onPadUpdated: This Component do not bind any function to recieve the data of the image", base64)}
 }

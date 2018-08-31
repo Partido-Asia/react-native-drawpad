@@ -13,6 +13,12 @@ Basic useful feature list:
 
 ### Still developing, any PR is welcome!
 
+##How to install 
+
+```
+npm install react-native-drawpad --save
+rnpm link react-native-webview-bridge
+```
 
 And here's some code! :+1:
 
@@ -64,6 +70,7 @@ catchImageEncode(base64EncodingImage){
 |**`padColor`**|Sring, color of the drawpad |`#eee`|
 |**`padWidth`**|Number, width of the drawpad |`300`|
 |**`padHeight`**|Number, height of the drawpad |`300`|
+|**`initColor`**|Sring, color of the pen initially |`#dd7777`|
 |**`colors`**|Array, a set of color used in color selector |`['#dd7777','#222','#FE5722', '#FEEA3B', '#4CAE50', '#2196F2','purple']`|
 |**`onPadUpdated`**|Function, the function to listen to the change of the drawpad |`a function log the base64 encoding image data`|
 
