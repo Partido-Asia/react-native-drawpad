@@ -1,6 +1,6 @@
 # react-native-drawpad
 
-![image](https://i.imgur.com/SwqV8dc.gif)
+![image](https://i.imgur.com/MdYbGO1.gif)
 
 Basic useful feature list:
 
@@ -78,3 +78,5 @@ catchImageEncode(base64EncodingImage){
 
  * [React Native Webviw-Bridge](https://github.com/alinz/react-native-webview-bridge) for webview/native communication
 
+
+![image](https://i.imgur.com/SwqV8dc.gif)
